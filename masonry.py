@@ -1,6 +1,50 @@
-
-
 from math import floor
+
+"""
+
+#Build walls of rectangles that will retain their aspect ratios and resize themselves to fill a wider rectangle specified by width or height.
+Example with three 'bricks':
+
+#Three 'bricks' one squate two rectangular
+
+b1 = Brick('img_b1.png',100,100)
+b2 = Brick('img_b2.png',100,50)
+b3 = Brick('img_b3.png',100,50)
+
+#Put them into two vertical columns, the left containing the square, the right containing the two rectangles
+
+leftColumn  = Stack([b1],orientation='vertical')
+rightColumn = Stack([b2,b3],orientation='vertical')
+
+#And put those into a horizontal row:
+
+outerRow    = Stack([leftColumn,rightColumn],orientation='horizontal')
+
+#Initialise a logger to store the cordinates and sizes when they're asked to pack with a constraint
+
+logger = {}
+
+#The origin to place the bricks at
+
+xorigin = 0
+yorigin = 0
+
+#What size would the bricks need to be if I wanted the outer row to be 200 pixels high starting at xorigin,yorigin
+outerRow.getSizeWithContstraint('height',200,logger,xorigin,yorigin)
+
+print(logger)
+
+# img_b1 is at 0,0 : 200px by 200px, doube it's original size of 100x100
+# img_b2 is at 200,0 : 50px by 100px, it has kept its original size of 50x100
+# img_b3 is at 200,0 : 50px by 100px, it has kept its original size of 50x100
+
+{ 'img_b1.png': (0, 0, 200, 200, 2.0, 100, 100), 
+  'img_b2.png': (200, 0, 50, 100, 1.0, 50, 100), 
+  'img_b3.png': (200, 100, 50, 100, 1.0, 50, 100)
+}
+
+"""
+
 
 class Brick:
 
