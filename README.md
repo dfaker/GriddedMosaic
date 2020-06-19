@@ -6,7 +6,7 @@ Makes packed video mosaics and tries to find the one with the lowest reative ima
 
 # Installation
 
-Requires Python 3 with cv2+numpy along with ffmpeg adn mpv being installed on the system.
+Requires Python 3 with cv2+numpy along with ffmpeg and mpv being installed on the system.
 
 # Usage
 
