@@ -5,7 +5,7 @@ from math import floor
 #Build walls of rectangles that will retain their aspect ratios and resize themselves to fill a wider rectangle specified by width or height.
 Example with three 'bricks':
 
-#Three 'bricks' one squate two rectangular
+#Three 'bricks' one square, two rectangular
 
 b1 = Brick('img_b1.png',100,100)
 b2 = Brick('img_b2.png',100,50)
