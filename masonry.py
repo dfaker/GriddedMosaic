@@ -36,7 +36,7 @@ print(logger)
 
 # img_b1 is at 0,0 : 200px by 200px, doube it's original size of 100x100
 # img_b2 is at 200,0 : 50px by 100px, it has kept its original size of 50x100
-# img_b3 is at 200,0 : 50px by 100px, it has kept its original size of 50x100
+# img_b3 is at 200,100 : 50px by 100px, it has kept its original size of 50x100
 
 { 'img_b1.png': (0, 0, 200, 200, 2.0, 100, 100), 
   'img_b2.png': (200, 0, 50, 100, 1.0, 50, 100), 
