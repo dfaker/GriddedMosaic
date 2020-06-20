@@ -30,13 +30,17 @@ if you select 'y' an mpv player instance will be started with an initial loop wi
 - `d`,`D`,`w`,`W` = Move window fowards in increasingly large increments.
 - `a`,`A`,`s`,`S` = Move window backwards in increasingly large increments.
 
-After the time window is mobed backwards and forwards in the clip it will skip to `postMoveScrollBack` prior to the end of the time window, when playback reaches the end of the time window it will loop back around to the start of the time window, to easily show that the start and end of the selected time window looks like, playerback will initially be sped up to play the entire time window once every four seconds.
+![Time window selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI - Cut Window Selection.png)
+
+After the time window is moved backwards and forwards in the clip it will skip to `postMoveScrollBack` prior to the end of the time window, when playback reaches the end of the time window it will loop back around to the start of the time window, to easily show that the start and end of the selected time window looks like, playerback will initially be sped up to play the entire time window once every four seconds.
 
 When the time window is at the position you wish to clip:
 - `y` = Commit current time window and reset to choose another.
 to add the time window to the grid output.
 
 Additonally you can press `c` to crop the video, press `c` to start cropping and then use the mouse to select two corners of the intended crop, press `c` again to remove the crop. 
+
+![Crop selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI - Crop Selection.png)
 
 Finally:
 `q` = Skip to next video.
@@ -46,6 +50,6 @@ Finally:
 
 After all of the sections are selected, processing will take place to cur and crop the selected video regions, after that is complete a selection of possible grid packings your your videos will be generated and displayed to you in a new window:
 
-
+![Layout Plan Selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI - Layout Plan Selection.png)
 
 ## Encoding of final grids
