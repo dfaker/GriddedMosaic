@@ -2,7 +2,7 @@
 
 ![Low res output example](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/GridOutput.gif)
 
-Makes packed video mosaics and tries to find the layout with the lowest reative image resizing.
+Makes packed video mosaics and tries to find the layout with the lowest relative image resizing.
 
 # Installation
 
