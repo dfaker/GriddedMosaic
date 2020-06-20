@@ -8,12 +8,16 @@ Makes packed video mosaics and tries to find the one with the lowest reative ima
 
 Requires Python 3 with cv2+numpy along with ffmpeg and mpv being installed on the system.
 
+- For Python 3 https://www.python.org/
+- For Ffmpeg https://ffmpeg.org/
+- For numpy and cv2 once pyhton is installed `pip install numpy opencv-python`
+
 # Usage
 
 Grid creation happens in multiple stages stages:
 
 ## Additon of video clips and parameter input
-One or more video files or folders full of video files are passed to `makeGrid.py` on the command line, the user will them be prompted to input:
+One or more video files or folders full of video files are passed to `makeGrid.py` on the command line, or multiple video files can be dropped directly onto `makeGrid.py`, the user will them be prompted to input:
 
 - **outputFormat?[webm,hqwebm](enter for hqwebm as default)>** `webm` or `hqwebm` both .webm outputs but the `webm` option limits the file size to 4M
 - **banner?(enter for blank as default)>** Infomational text to be displayed at the bottom right of the grid on playback, this may be left blank
