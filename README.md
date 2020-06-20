@@ -22,8 +22,6 @@ One or more video files or folders full of video files are passed to makeGrid.py
 - **postMoveScrollBack(enter for 1s as default)>** If you choose to cut the input videos this is the number of seconds prior to the scection end the playback will start from when the cut window is moved, enter to use the default of 1 second.
 - **maxPerGrid(enter for 7 as default)>** Maximum number of images to use in the initial grid creation run.
 
-The user will then be prompted with `cut?` answering `n` will simply use the input videos directly in the grid, if the user answers with `y` each file will be shown to the user for scene selection
-
 ## Optional cut selection
 After the parameters are set you will be prompted with:
 **Select cuts in interactively in mpv? ('y' to cut in mpv, anything else to use clips as input)***
