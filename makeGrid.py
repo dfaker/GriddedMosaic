@@ -54,7 +54,7 @@ targetSize = (maxSize+minsize)/2
 crf=4
 br=2000000
 threads=4
-maxPerGrid=9
+maxPerGrid=7
 
 outputFormats = ['webm','hqwebm']
 outputFormat  = ''
@@ -65,26 +65,27 @@ os.path.exists('tempwebms') or os.mkdir(('tempwebms'))
 countTempfolders=str(len(os.listdir('tempwebms'))+2)
 
 while outputFormat not in outputFormats:
-  outputFormat = input('outputFormat?[{}]>'.format(','.join(outputFormats)))
+  outputFormat = input('outputFormat?[{}](enter for hqwebm as default)>'.format(','.join(outputFormats)))
   if outputFormat == '':
     outputFormat = outputFormats[-1]
 
-outbanner = input('banner?>')
-outfilename = input('filename?>')
+outbanner = input('banner?(enter for blank as default)>')
+outfilename = input('filename?(enter for timestamp as default)>')
+outbanner = outbanner.replace("'","\\u2019")
 
 try:
-  targetDuration = int(input('targetDuration>'))
+  targetDuration = int(input('targetDuration(enter for 60s as default)>'))
 except:
   pass
 
 try:
-  postMoveScrollBack = int(input('postMoveScrollBack>'))
+  postMoveScrollBack = int(input('postMoveScrollBack(enter for 1s as default)>'))
 except:
   pass
 
 
 try:
-  maxPerGrid = int(input('maxPerGrid (max{})>'.format(len(urls))))
+  maxPerGrid = int(input('maxPerGrid(enter for 7 as default)>'))
 except:
   pass
 
@@ -93,7 +94,15 @@ print(urls,urls[0],os.path.isfile(urls[0]),os.path.isfile(urls[0]))
 
 if os.path.isfile(urls[0]) or os.path.isdir(urls[0]) or '*' in urls[0]:
 
-  if input('cut?').upper()=='Y':
+  if input('Selct cuts in interactively in mpv? (\'y\' to cut in mpv, anything else to use clips as input)').upper()=='Y':
+    print("""
+Mpv Cut controls:
+y = Commit current time window and reset to choose another.
+d,D,w,W = Move window fowards in increasingly large increments. 
+a,A,s,S = Move window backwards in increasingly large increments. 
+q = Skip to next video.
+h = End cutting process.
+    """)
 
     outurls=[]
 
@@ -109,9 +118,12 @@ if os.path.isfile(urls[0]) or os.path.isdir(urls[0]) or '*' in urls[0]:
     extractQeueue = []
     exitEarly=False
     for file in urls:
-      ic = input(file).upper()
+      ic = input('Cut {}? (enter to cut, \'s\' to skip, \'e\' to end cutting process)'.format(file)).upper()
       if ic=='Q':
         exit()
+      elif ic=='E':
+        exitEarly=True
+        break
       elif ic=='S':
         continue
 
