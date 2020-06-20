@@ -13,7 +13,7 @@ Requires Python 3 with cv2+numpy along with ffmpeg and mpv being installed on th
 Grid creation happens in multiple stages stages:
 
 ## Additon of video clips and parameter input
-One or more video files or folders full of video files are passed to makeGrid.py on the command line, the user will them be prompted to input:
+One or more video files or folders full of video files are passed to `makeGrid.py` on the command line, the user will them be prompted to input:
 
 - **outputFormat?[webm,hqwebm](enter for hqwebm as default)>** `webm` or `hqwebm` both .webm outputs but the `webm` option limits the file size to 4M
 - **banner?(enter for blank as default)>** Infomational text to be displayed at the bottom right of the grid on playback, this may be left blank
@@ -52,4 +52,9 @@ After all of the sections are selected, processing will take place to cur and cr
 
 ![Layout Plan Selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI%20-%20Layout%20Plan%20Selection.png?raw=true)
 
-## Encoding of final grids
+The 'layout plan' peview window will show you all possible arrangement of your input videos, they are ordered starting with the layouts that cause the input images to be enlarged or shrunk the least up towards the layouts that require the greatest image resizing.
+
+You can flip through the layout options with the `a` and `d` keys, when you see a layout you'd like to queue for output press `y`, you can select multiple layouts to be encoded to output videos before finally pressing `q` to quit the plan browser and start encoding.
+
+# Encoding
+If at least one layout was selected it will be encoded as an output video in the same directory as `makeGrid.py`, after all videos have been encoded the layout calculations will be run again, this time for `maxPerGrid`+1 videos included in the grid, to exit the program finally without requesting further output to be encoded press `e`.
