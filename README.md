@@ -55,7 +55,7 @@ Finally:
 
 ## Layout viewing and selection
 
-After all of the sections are selected, processing will take place to cur and crop the selected video regions, after that is complete a selection of possible grid packings your your videos will be generated and displayed to you in a new window:
+After all of the sections are selected, processing will take place to cut and crop the selected video regions, after that is complete a selection of possible grid packings your your videos will be generated and displayed to you in a new window:
 
 ![Layout Plan Selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI%20-%20Layout%20Plan%20Selection.png?raw=true)
 
