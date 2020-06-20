@@ -43,8 +43,8 @@ Additonally you can press `c` to crop the video, press `c` to start cropping and
 ![Crop selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI%20-%20Crop%20Selection.png?raw=true)
 
 Finally:
-`q` = Skip to next video.
-`h` = End cutting process.
+- `q` = Skip to next video.
+- `h` = End cutting process.
 
 ## Layout viewing and selection
 
