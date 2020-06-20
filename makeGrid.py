@@ -71,7 +71,7 @@ while outputFormat not in outputFormats:
 
 outbanner = input('banner?(enter for blank as default)>')
 outfilename = input('filename?(enter for timestamp as default)>')
-outbanner = outbanner.replace("'","\\u2019")
+outbanner = outbanner.replace("'", "`").replace('"', '\"').replace('%', '\\\\%')
 
 try:
   targetDuration = int(input('targetDuration(enter for 60s as default)>'))
