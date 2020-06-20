@@ -32,7 +32,7 @@ if you select 'y' an mpv player instance will be started with an initial loop wi
 
 ![Time window selection](https://raw.githubusercontent.com/dfaker/GriddedMosaic/master/UI%20-%20Cut%20Window%20Selection.png?raw=true)
 
-After the time window is moved backwards and forwards in the clip it will skip to `postMoveScrollBack` prior to the end of the time window, when playback reaches the end of the time window it will loop back around to the start of the time window, to easily show that the start and end of the selected time window looks like, playerback will initially be sped up to play the entire time window once every four seconds.
+After the time window is moved backwards and forwards in the clip it will skip to `postMoveScrollBack` prior to the end of the time window, when playback reaches the end of the time window it will loop back around to the start of the time window, playback will initially be sped up to play the entire time window once every four seconds pressing `BACKSPACE` will reset it to 1x speed.
 
 When the time window is at the position you wish to clip:
 - `y` = Commit current time window and reset to choose another.
