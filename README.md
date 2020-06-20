@@ -10,7 +10,7 @@ Requires Python 3 with cv2+numpy along with ffmpeg and mpv being installed on th
 
 - For Python 3 https://www.python.org/
 - For Ffmpeg https://ffmpeg.org/
-- For numpy and cv2 once pyhton is installed `pip install numpy opencv-python`
+- For numpy and cv2 once python is installed `pip install numpy opencv-python`
 
 # Usage
 
