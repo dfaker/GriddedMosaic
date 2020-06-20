@@ -278,7 +278,7 @@ def encodeRun(run):
   while 1:
     key,resizeScale,w,h,logger,layout,coords = run[runIndex%len(run)]
 
-    canvas = np.zeros((int(h),int(w),3),np.uint8)
+    canvas = np.zeros((int(h)+25,int(w),3),np.uint8)
     for k,(xo,yo,cw,ch,ar,ow,oh) in sorted(logger.items(),key=lambda x:int(x[0])):
       rimg = cv2.resize(images[k],(int(floor(cw)),int(floor(ch))))
       try:
@@ -286,6 +286,14 @@ def encodeRun(run):
       except Exception as e:
         print(e)
 
+    cv2.putText
+    canvas = cv2.putText(canvas, 'ResizeScale={}, keys: d,D=Forwards, a,A=Backwards, y=Accept layout plan, q=Quit and render accepted plans, e=Exit without rendering'.format(key,resizeScale), 
+                         (0,int(h)+15),
+                         cv2.FONT_HERSHEY_SIMPLEX,  
+                         0.5,
+                         (255,255,255),
+                         1,
+                         cv2.LINE_AA) 
     print(layout,'resizeScale:',resizeScale)
     cv2.imshow('plan',canvas)
 
@@ -344,13 +352,15 @@ def encodeRun(run):
       maxvol=float('-inf')
       for line in outs.decode('utf8').split('\n'):
         if line.strip() != '':
-          ts,vol1,vol2 = line.strip().split(',')
+          parts = line.strip().split(',')
+          ts,vol1,vol2 = parts[0],parts[1],parts[2]
           vol= -((float(vol1)+float(vol2))/2)
           minvol = min(minvol,vol)
           maxvol = max(maxvol,vol)
       for line in outs.decode('utf8').split('\n'):
         if line.strip() != '':
-          ts,vol1,vol2 = line.strip().split(',')
+          parts = line.strip().split(',')
+          ts,vol1,vol2 = parts[0],parts[1],parts[2]
           vol= -((float(vol1)+float(vol2))/2)
           vol = (vol-minvol)/(maxvol-minvol)
           vols.setdefault(round(float(ts),1),{}).setdefault(k,[]).append(vol)
@@ -620,6 +630,7 @@ while stackSize <= len(bricks) or runnumber==0:
     exit()
 
   runnumber+=1
+  runstart = time.time()
 
   print('Action gen start')
   allactionlistCombs = list(generateActionCombinations([],stackSize,1))
@@ -727,9 +738,10 @@ while stackSize <= len(bricks) or runnumber==0:
         sizeChange = (sizeChange/len(areasOriginal))
 
       runs.append( (abs((w/h)-(16/9)),sizeChange, w,h,logger,state,coords) )
-      if len(runs)>150:
+      if abs(time.time()-runstart) > 10:
         print('stackSize:',stackSize,'<=','len bricks:', len(bricks))
         encodeRun(runs)
+        runstart=time.time()
         runs=[]
 
   print('stackSize:',stackSize,'<=','len bricks:', len(bricks))
