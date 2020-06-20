@@ -29,7 +29,10 @@ One or more video files or folders full of video files are passed to `makeGrid.p
 ## Optional cut selection
 After the parameters are set you will be prompted with:
 **Select cuts in interactively in mpv? ('y' to cut in mpv, anything else to use clips as input)***
-if you select 'y' an mpv player instance will be started with an initial loop window between 0 and `targetDuration` seconds, you can control the time window selected with the keys:
+
+If you select `n` then the cutting step will be skipped using the full clips as input.
+
+If you select 'y' an mpv player instance will be started with an initial loop window between 0 and `targetDuration` seconds, you can control the time window selected with the keys:
 
 - `d`,`D`,`w`,`W` = Move window fowards in increasingly large increments.
 - `a`,`A`,`s`,`S` = Move window backwards in increasingly large increments.
