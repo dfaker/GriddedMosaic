@@ -182,7 +182,9 @@ h = End cutting process.
       outurls.append(outname)
 
     urls=outurls
-
+  elif '*' in urls[0]:
+    urls = [f for f in glob.glob(urls[0]) if isVideoFile(f)]
+      
 for i,url in enumerate(urls):
 
   basename = url.split('/')[-1]
